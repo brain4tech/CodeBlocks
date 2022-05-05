@@ -24,7 +24,10 @@
 !/RawContent/**/*
 
 # Disallow StarterContent files
-Content/StarterContent
+/Content/StarterContent
+
+# Disallow Plugins
+/Plugins
 
 # OS/platform generated files.
 
