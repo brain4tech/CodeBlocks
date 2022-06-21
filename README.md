@@ -1,9 +1,12 @@
 ## Visual Programming in 3D/VR
 Working title: **TuringSandbox**
 
-Developed by: Frederik Bußmann, Jefta de Leeuw van Weenen & Agnes Widera
+Development by: Jefta de Leeuw van Weenen & Agnes Widera
+Basic Map  Design by: Agnes Widera
 
-Primarily documented by: Christian Pavel
+Documented by: Christian Pavel, Jefta de Leeuw van Weenen
+
+Model detailing: Frederik Bußmann
 
 Developing in: Unreal Engine 5
 
