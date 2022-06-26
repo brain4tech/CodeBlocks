@@ -13,7 +13,7 @@ UCLASS()
 class TURINGSANDBOX_API UCodeFormatting : public UBlueprintFunctionLibrary {
 	GENERATED_BODY()
 	UFUNCTION(BlueprintCallable, Category="custom")
-	static FText FormatText(FString InputFile);
+	static FText FormatText(FString InputPath);
 
 	UFUNCTION(BlueprintCallable, Category="custom")
 	static FString SaveTextToFile(FString Content);
