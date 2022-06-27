@@ -4,23 +4,60 @@
 #include "CodeFormatting.h"
 #include <sstream>
 
+FString UCodeFormatting::SaveTextToFile(FString Content) {
+	FString File = FPaths::ProjectConfigDir();
+	File.Append(TEXT("input.txt"));
+	if (FFileHelper::SaveStringToFile(Content, *File)) {
+		UE_LOG(LogTemp, Warning, TEXT("FileManipulation: Sucsesfuly Written: \"%s\" to the text file"),*File);
+	}
+	return *File;
+}
+
 FText UCodeFormatting::FormatText(FString InputPath) {
 	UE_LOG(LogTemp, Warning, TEXT("Code Formatting: About to format from: \"%s\""), *InputPath);
 
 	// prepare input-directory
 	std::string InputDir = std::string(TCHAR_TO_UTF8(*InputPath));
 	#ifdef _WIN32
-		size_t pos;
-		while ((pos = InputDir.find("/")) != std::string::npos) {
-			InputDir.replace(pos, 1, "\\");
-		}
+			size_t pos;
+			while ((pos = InputDir.find("/")) != std::string::npos) {
+				InputDir.replace(pos, 1, "\\");
+			}
 	#endif
-	
+
+	#ifdef __linux__
+		int stringpos = -3;
+		while (true){
+			stringpos = InputDir.find(" ", stringpos + 3);
+
+			if (stringpos == std::string::npos){
+				break;
+			}
+			InputDir.replace(stringpos, 1, "\\ ");
+		}
+
+
+	#endif
+
+	#ifdef __APPLE__
+		int stringpos = -3;
+		while (true){
+			stringpos = InputDir.find(" ", stringpos + 3);
+
+			if (stringpos == std::string::npos){
+				break;
+			}
+			InputDir.replace(stringpos, 1, "\\ ");
+		}
+
+
+	#endif
 
 	// prepare execution directory
 	FString TempExecDir = FPaths::ProjectDir();
+	std::string Command = "";
 
-	#ifdef _WIN32
+#ifdef _WIN32
 		TempExecDir.Append("Source/TuringSandbox/bin/clang-format-12.0.1_windows-amd64.exe");
 		std::string ExecDir = std::string(TCHAR_TO_UTF8(*TempExecDir));
 		
@@ -30,22 +67,47 @@ FText UCodeFormatting::FormatText(FString InputPath) {
 		
 
 		// build command for windows
-		std::string Command = "\"\"" + ExecDir + "\" --style=llvm -i \"" + InputDir + "\"\"";
-	#endif
+		Command = "\"\"" + ExecDir + "\" --style=llvm -i \"" + InputDir + "\"\"";
+#endif
 
-	#ifdef __linux__
+#ifdef __linux__
 		// build command for linux
+		stringpos = -3;
+	
 		TempExecDir.Append("Source/TuringSandbox/bin/clang-format-12.0.1_linux-amd64");
 		std::string ExecDir = std::string(TCHAR_TO_UTF8(*TempExecDir));
-		std::string Command = ExecDir + " --style=llvm -i " + InputDir;
-	#endif
 
-	#ifdef __APPLE__
+		while (true){
+			stringpos = ExecDir.find(" ", stringpos + 3);
+
+			if (stringpos == std::string::npos){
+				break;
+			}
+			ExecDir.replace(stringpos, 1, "\\ ");
+		}
+
+		Command = ExecDir + " --style=llvm -i " + InputDir;
+
+#endif
+
+#ifdef __APPLE__
 		// build command for mac
+		stringpos = -3;
+	
 		TempExecDir.Append("Source/TuringSandbox/bin/clang-format-12.0.1_macos-amd64");
 		std::string ExecDir = std::string(TCHAR_TO_UTF8(*TempExecDir));
-		std::string Command = ExecDir + " --style=llvm -i " + InputDir;
-	#endif
+
+		while (true){
+			stringpos = ExecDir.find(" ", stringpos + 3);
+
+			if (stringpos == std::string::npos){
+				break;
+			}
+			ExecDir.replace(stringpos, 1, "\\ ");
+		}
+	
+		Command = ExecDir + " --style=llvm -i " + InputDir;
+#endif
 	
 	// log command
 	FString CommandString(Command.c_str());
@@ -60,15 +122,6 @@ FText UCodeFormatting::FormatText(FString InputPath) {
 
 	// return output as FText
 	return FText::FromString(FileContent);
-}
-
-FString UCodeFormatting::SaveTextToFile(FString Content) {
-	FString File = FPaths::ProjectConfigDir();
-	File.Append(TEXT("input.txt"));
-	if (FFileHelper::SaveStringToFile(Content, *File)) {
-		UE_LOG(LogTemp, Warning, TEXT("FileManipulation: Sucsesfuly Written: \"%s\" to the text file"),*File);
-	}
-	return *File;
 }
 
 
