@@ -21,7 +21,7 @@ FText UCodeFormatting::FormatText(FString InputPath) {
 	FString TempExecDir = FPaths::ProjectDir();
 
 	#ifdef _WIN32
-		TempExecDir.Append("Source/bin/clang-format-12.0.1_windows-amd64.exe");
+		TempExecDir.Append("Source/TuringSandbox/bin/clang-format-12.0.1_windows-amd64.exe");
 		std::string ExecDir = std::string(TCHAR_TO_UTF8(*TempExecDir));
 		
 		while ((pos = ExecDir.find("/")) != std::string::npos) {
@@ -30,20 +30,19 @@ FText UCodeFormatting::FormatText(FString InputPath) {
 		
 
 		// build command for windows
-		// std::string Command = "\"\"" + ExecDir + "\" --style=llvm -i \"" + InputDir + "\"\"";
-		std::string Command = "..\\..\\..\\..\\..\\..\\Users\\mariu\\Documents\\\"Unreal Projects\"\\\"TuringSandbox 5.0\"\\Source\\TuringSandbox\\bin\\clang-format-12.0.1_windows-amd64.exe --style=llvm -i \"" + InputDir + "\"";
+		std::string Command = "\"\"" + ExecDir + "\" --style=llvm -i \"" + InputDir + "\"\"";
 	#endif
 
 	#ifdef __linux__
 		// build command for linux
-		TempExecDir.Append("Source/bin/clang-format-12.0.1_linux-amd64");
+		TempExecDir.Append("Source/TuringSandbox/bin/clang-format-12.0.1_linux-amd64");
 		std::string ExecDir = std::string(TCHAR_TO_UTF8(*TempExecDir));
 		std::string Command = ExecDir + " --style=llvm -i " + InputDir;
 	#endif
 
 	#ifdef __APPLE__
 		// build command for mac
-		TempExecDir.Append("Source/bin/clang-format-12.0.1_macos-amd64");
+		TempExecDir.Append("Source/TuringSandbox/bin/clang-format-12.0.1_macos-amd64");
 		std::string ExecDir = std::string(TCHAR_TO_UTF8(*TempExecDir));
 		std::string Command = ExecDir + " --style=llvm -i " + InputDir;
 	#endif
