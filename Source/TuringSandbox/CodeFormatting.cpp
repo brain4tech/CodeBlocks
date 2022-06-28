@@ -94,7 +94,7 @@ FText UCodeFormatting::FormatText(FString InputPath) {
 		// build command for mac
 		stringpos = -3;
 	
-		TempExecDir.Append("Source/TuringSandbox/bin/clang-format-12.0.1_macos-amd64");
+		TempExecDir.Append("Source/TuringSandbox/bin/clang-format-12.0.1_macosx-amd64");
 		std::string ExecDir = std::string(TCHAR_TO_UTF8(*TempExecDir));
 
 		while (true){
@@ -106,7 +106,8 @@ FText UCodeFormatting::FormatText(FString InputPath) {
 			ExecDir.replace(stringpos, 1, "\\ ");
 		}
 	
-		Command = ExecDir + " --style=llvm -i " + InputDir;
+		// Command = ExecDir + " --style=llvm -i " + InputDir;
+		Command = "./" + ExecDir + " --style=llvm -i " + InputDir;
 #endif
 	
 	// log command
