@@ -1,5 +1,9 @@
-# CodeBlocks
-## Programming, but is in 3D!
+<div align="center">
+<img src="Content/Logo/codeblocks_logo_shadown-black.png" alt="CodeBlocks logo" width="500"/>
+<br>
+Programming, but it's in 3D!
+</div>
+<br>
 
 *Working title: **TuringSandbox***
 
@@ -26,4 +30,6 @@ Currently CodeBlocks only supports programming with integers and generates C cod
 * CodeBlocks is developed in Epic Games' [Unreal Engine 5](https://www.unrealengine.com/en-US/unreal-engine-5)
 
 
+<br>
+<br>
 (c) Agnes Widera, Jefta de Leeuw van Weenen, Frederik Bußmann and Christian Pavel
