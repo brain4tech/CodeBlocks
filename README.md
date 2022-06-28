@@ -1,5 +1,5 @@
-## Visual Programming in 3D/VR
-Working title: **TuringSandbox**
+# CodeBlocks
+## Programming, but in 3D!
 
 Development by: Jefta de Leeuw van Weenen & Agnes Widera
 Basic Map  Design by: Agnes Widera
