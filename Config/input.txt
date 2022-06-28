@@ -1,6 +1,7 @@
 int main() {
-  int asd;
-  if (230 < +;) {
+  int a;
+  a = 0;
+  while (< 2) {
   }
-  asd = 0 + 0;
+  return 0;
 }
