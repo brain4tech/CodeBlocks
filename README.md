@@ -1,7 +1,7 @@
 <div align="center">
 <img src="Content/Logo/codeblocks_logo_shadown-black.png" alt="CodeBlocks logo" width="500"/>
 <br>
-Programming, but it's in 3D!
+Programming, but in 3D!
 </div>
 <br>
 
