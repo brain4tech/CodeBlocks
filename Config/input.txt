@@ -1,6 +1,6 @@
 int main() {
   int asd;
-  int asdas;
-  asdas = 54;
-  return 0;
+  if (230 < +;) {
+  }
+  asd = 0 + 0;
 }
