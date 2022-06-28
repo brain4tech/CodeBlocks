@@ -1,7 +1,4 @@
 int main() {
-  int a;
-  a = 0;
-  while (< 2) {
+  if (0 < 2) {
   }
-  return 0;
 }
