@@ -25,7 +25,7 @@ Currently CodeBlocks only supports programming with integers and generates C cod
 
 ## Credits
 * Thanks to [muttleyxd](https://github.com/muttleyxd) for providing [clang-format binaries](https://github.com/muttleyxd/clang-tools-static-binaries/releases) to the world
-* Ingame fonts: [Rightous](https://fonts.google.com/specimen/Righteous) and [Source Code Pro](https://fonts.google.com/specimen/Righteous)
+* Ingame fonts: [Righteous](https://fonts.google.com/specimen/Righteous) and [Source Code Pro](https://fonts.google.com/specimen/Righteous)
 * Logo created by Jefta de Leeuw van Weenen; used font [Untrouble](https://www.dafont.com/de/untrouble.font)
 * CodeBlocks is developed in Epic Games' [Unreal Engine 5](https://www.unrealengine.com/en-US/unreal-engine-5)
 
