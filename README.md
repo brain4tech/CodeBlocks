@@ -1,5 +1,5 @@
 <div align="center">
-<img src="Content/Logo/codeblocks_logo_shadow-black.png" alt="CodeBlocks logo" width="500"/>
+<img src="/Content/Logo/codeblocks_logo_shadow-black.png" alt="CodeBlocks logo" width="500"/>
 <br>
 Programming, but in 3D!
 </div>
